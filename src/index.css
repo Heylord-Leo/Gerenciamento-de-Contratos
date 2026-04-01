@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Outfit", sans-serif;
+  
+  --color-primary: #0f172a;
+  --color-accent: #2563eb;
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-danger: #ef4444;
+  --color-info: #3b82f6;
+  
+  --shadow-brutal: 4px 4px 0px 0px rgba(0,0,0,1);
+  --shadow-brutal-hover: 6px 6px 0px 0px rgba(0,0,0,1);
+  --shadow-brutal-sm: 2px 2px 0px 0px rgba(0,0,0,1);
+}
+
+@layer base {
+  body {
+    @apply bg-slate-50 text-slate-900 font-sans;
+  }
+}
+
+@layer components {
+  .brutal-card {
+    @apply bg-white border-2 border-black shadow-[var(--shadow-brutal)] transition-all duration-200;
+  }
+  
+  .brutal-card:hover {
+    @apply shadow-[var(--shadow-brutal-hover)] -translate-x-0.5 -translate-y-0.5;
+  }
+
+  .brutal-btn-primary {
+    @apply bg-black text-white border-2 border-black px-4 py-2 font-extrabold uppercase tracking-wider shadow-[var(--shadow-brutal-sm)] hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 transition-all;
+  }
+
+  .brutal-btn-outline {
+    @apply bg-white text-black border-2 border-black px-4 py-2 font-extrabold uppercase tracking-wider shadow-[var(--shadow-brutal-sm)] hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 transition-all;
+  }
+
+  .badge {
+    @apply px-2 py-0.5 text-xs font-black uppercase border-2 border-black inline-flex items-center gap-1;
+  }
+
+  .badge-success { @apply bg-[var(--color-success)] text-white; }
+  .badge-warning { @apply bg-[var(--color-warning)] text-black; }
+  .badge-danger { @apply bg-[var(--color-danger)] text-white; }
+  .badge-info { @apply bg-[var(--color-info)] text-white; }
+  .badge-neutral { @apply bg-slate-200 text-slate-800; }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-slate-100;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-300 border-2 border-transparent bg-clip-content rounded-full;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-slate-400;
+}
